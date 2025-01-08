@@ -1,0 +1,413 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto 3fr;
+    grid-template-rows: 150px 1fr auto;
+    grid-template-areas: "header header"
+                         "sidebar contenido"
+                         "sidebar footer"
+    ;
+}
+
+body{
+   font-family: 'Lato', sans-serif;
+   color:black;
+   min-height: 100vh;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+@keyframes neon {
+    0%, 100% {
+      text-shadow: 0 0 10px#8de41c,
+                   0 0 20px #8de41c,
+                   0 0 40px #8de41c;
+    }
+    50% {
+      text-shadow: 0 0 10px #f6287d, 
+                   0 0 20px #f6287d, 
+                   0 0 40px #f6287d;
+    }
+  }
+
+header{
+    grid-area: header;
+    background-color: black;
+    color:whitesmoke;
+    text-align: center;
+    padding: 20px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.sidebar{
+    grid-area: sidebar;
+    background-color: #010911;
+    border: 3px solid black;
+    position: sticky;
+    top: 0;
+    overflow-y: auto; 
+    min-height: 100vh;
+    align-self: start;
+
+}
+
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    list-style: none; 
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.sidebar li {
+    margin-bottom: 120px; 
+    background-color: black;
+    border: 8px inset whitesmoke;
+    overflow: hidden; 
+}
+
+.sidebar li a {
+    text-decoration: none; 
+    color: whitesmoke; 
+    font-weight: bold;
+    transition: color 0.3s ease; 
+}
+
+.sidebar a:hover {
+    animation: neon 0.5s infinite alternate;
+}
+
+.sidebar ul li:hover {
+    transform: scaleY(1.2); 
+}
+
+
+.contenido{
+    grid-area: contenido;
+    background-color: #EEF4ED;
+}
+
+
+footer{
+    grid-area: footer;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    background-color: black;
+    color: whitesmoke;
+}
+
+.apartado{
+    color: black;
+    margin-left: 80px;
+    margin-top: 50px;
+    font-size: 3rem;
+}
+
+
+h3{
+    color:black;
+    font-size: 1.5rem;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+}
+
+.copyright{
+    color: whitesmoke;
+    
+}
+
+.redes-sociales{
+    display: flex;
+    gap: 30px;
+    color: whitesmoke;
+}
+
+img{
+    width: 600px;
+    height: auto;
+    margin: 80px;
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+    animation-timeline: --image;
+    animation-name: mostrar;
+    animation-range: entry 25% cover 40%;
+    animation-fill-mode: both;
+
+}
+
+@keyframes mostrar{
+    from{
+        opacity: 0;
+        transform:scale(25%);
+    }
+    to{
+        opacity: 1;
+        transform: scale(100%);
+    } 
+}
+
+.lanzamientos-destacados {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    justify-items: center;
+    width: 100%;
+    padding: 100px;
+}
+
+.lanzamientos-destacados iframe {
+    width: 300px; 
+    height: 400px;
+}
+
+.must-listen-unico {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.must-listen-unico img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.must-listen-content-unico {
+    display: flex;
+    flex-direction: column;
+}
+
+.must-listen-content-unico h3 {
+    margin: 100px 0 0;
+    font-size: 1.5em;
+}
+
+.must-listen-content-unico p {
+    margin: 50px 0 0;
+    font-size: 1.2em;
+}
+
+.conciertos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.concierto-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px; 
+}
+
+.concierto-item img {
+    width: 100%;
+    height: auto;
+}
+
+.concierto-item p {
+    margin-top: 10px; 
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px
+}
+
+.musica{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+}
+
+
+.musica .barra{
+    display: block;
+    position: relative;
+    background-color: whitesmoke;
+    height: 100%;
+    width: 10px;
+    border-radius: 50px;
+    margin: 0 5px;
+    animation: animar 1.2s linear infinite
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@keyframes animar{
+    50%{
+        height: 20%;
+    }
+    100%{
+        height: 100%;
+    }
+}
+
+.barra:nth-child(1){
+    animation-delay: 0s;
+}
+.barra:nth-child(2){
+    animation-delay: 0.3s;
+}
+.barra:nth-child(3){
+    animation-delay: 0.6s;
+}
+.barra:nth-child(4){
+    animation-delay: 0.9s;
+}
+.barra:nth-child(5){
+    animation-delay: 0.6s;
+}
+.barra:nth-child(6){
+    animation-delay: 0.3s;
+}
+.barra:nth-child(7){
+    animation-delay: 0s;
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "contenido"
+            "footer";
+        min-height: 100vh;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .sidebar {
+        position: static;
+        min-height: auto;
+        border: none;
+    }
+
+    .sidebar ul {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .sidebar li {
+        margin-bottom: 0;
+        border-width: 4px;
+    }
+
+    .sidebar li a {
+        padding: 10px 20px;
+        display: block;
+    }
+
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    img {
+        width: 100%;
+        max-width: 400px;
+        margin: 20px auto;
+    }
+
+    .apartado {
+        margin-left: 20px;
+        margin-top: 30px;
+        font-size: 2rem;
+    }
+
+    .lanzamientos-destacados {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .lanzamientos-destacados iframe {
+        width: 100%;
+        height: 250px;
+    }
+
+    .must-listen-unico {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .must-listen-unico img {
+        width: 200px;
+        height: 200px;
+        margin: 20px 0;
+    }
+
+    .must-listen-content-unico {
+        text-align: center;
+    }
+
+    .must-listen-content-unico h3 {
+        margin: 20px 0;
+    }
+
+    .must-listen-content-unico p {
+        margin: 20px 0;
+        font-size: 1em;
+    }
+
+    .conciertos {
+        padding: 0 20px;
+    }
+
+    .concierto-item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .concierto-item p {
+        font-size: 1.5rem;
+    }
+
+    .redes-sociales {
+        gap: 20px;
+    }
+
+    footer {
+        padding: 15px;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+}
